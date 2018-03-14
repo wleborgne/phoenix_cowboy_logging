@@ -17,7 +17,7 @@ defmodule PhoenixCowboyLogging.Mixfile do
   end
 
   defp deps do
-    [{:cowboy, "~> 1.0"},
+    [{:cowboy, "~> 2.0"},
      {:ex_doc, ">= 0.0.0", only: :dev}]
   end
 

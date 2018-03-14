@@ -12,7 +12,7 @@ defmodule PhoenixCowboyLogging do
   require Logger
 
   @doc """
-  Adds the settings needed to enable the logging. This much be called *before*
+  Adds the settings needed to enable the logging. This must be called *before*
   starting the Phoenix endpoint so it should be called early in every Phoenix
   application's `start` function.
   """
@@ -29,7 +29,7 @@ defmodule PhoenixCowboyLogging do
   Callback that does the logging.
   """
   def onresponse(status_code, _headers, _body, request) do
-    with {url, _} <- :cowboy_req.url(request),
+    with {url, _} <- :cowboy_req.uri(request),
          {method, _} <- :cowboy_req.method(request)
     do
       if probably_cowboy_error?(status_code, request) do
